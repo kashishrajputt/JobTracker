@@ -19,16 +19,37 @@ def add_jobs():
         return redirect(url_for('auth.login'))
     
     company = request.form.get('company')
-    if company:
+    if request.method == "POST":
         new_job = Job(
             comapny=request.form['comapny'],
             position=request.form['position'],
             status = request.form['status'],
             notes=request.form['notes'],
-            deadline = datetime.strptime(request.form['deadline'],'%Y-%m-%d') if request.form['deadline'] else None
+            deadline = datetime.strptime(request.form['deadline'],'%Y-%m-%d')
+            if request.form['deadline'] else None
         )
         db.session.add(new_job)
-        db.sessiom.commit()
+        db.session.commit()
         flash('New Job added successfully!')
 
-    return redirect(url_for('tasks.view'))
+    return redirect(url_for('jobs.view_jobs'))
+
+@job_bp.route('/edit/<int:id>', methods =['GET','POST'])
+def edit_job(id):
+    job = Job.query.get_or_404(id)
+    if request.method == 'POST':
+        job.company = request.form['company']
+        job.position = request.form['position']
+        job.status = request.form['status']
+        job.notes = request.form['notes']
+        job.deadline = datetime.strptime(request.form['deadline'], '%Y-%m-%d') if request.form['deadline'] else None
+        db.session.commit()
+        return redirect('/')
+    return redirect(url_for('jobs.view_jobs'))
+
+@job_bp.route('/delete/<int:id>')
+def delete_job(id):
+    job = Job.query.get_or_404(id)
+    db.session.delete(job)
+    db.session.commit()
+    return redirect('/')
