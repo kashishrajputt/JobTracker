@@ -2,7 +2,82 @@
 {% block title %} Jobs {% endblock %}
 
 {% block content %}
+
 <div class="job">
+    <h2> Your Jobs </h2>
+    <form action ="{{ url_for('jobs.add_jobs') }}" method="POST" class="job-form">
+        <label for="company">Company</label>
+        <input type="text" name="company" placeholder="Company" required>
+        <label for="position">Position</label>
+        <input type="text" name="position" placeholder="Position" required>
+        <label for="status">Status</label>
+        <select name="status" required>
+            <option value="" disabled selected>Select status</option>
+            <option value="Applied">Applied</option>
+            <option value="Interview">Interview</option>
+            <option value="Offer">Offer</option>
+            <option value="Rejected">Rejected</option>
+            <option value="Accepted">Accepted</option>
+        </select>
+        <label for="notes">Notes</label>
+        <input type="text" name="notes" placeholder="Notes">
+        <label for="deadline">Deadline</label>
+        <input type="date" name="deadline" placeholder="Deadline">
+        <button type="submit">Add</button>
+    </form>
+
+    {% if jobs %}
+    <br>
     
+    <table class="job-table">
+        <thead>
+            <tr>
+                <th>#</th>
+                <th>Company</th>
+                <th>Position</th>
+                <th>Status</th>
+                <th>Deadline</th>
+                <th>Actions</th>
+            </tr>
+
+        </thead>
+        <tbody>
+            {% for job in jobs %}
+            <tr>
+                <td>{{ loop.index }}</td>
+                <td>{{ job.company }}</td>
+                <td>{{ job.position }}</td>
+                <td> {{ job.status }}</td>
+                <td>{{ job.deadline.strftime('%Y-%m-%d') if job.deadline else '' }}</td>
+                <td>
+                    <a href="{{ url_for('jobs.edit_job', id=job.id)}}" class="btn btn-warning btn-sm">Edit</a>
+                    <a href="{{ url_for('jobs.delete_job', id=job.id)}}" class="btn btn-danger btn-sm">Delete</a>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    {% else %}
+    <p>No jobs yet. Add jobs.</p>
+    {% endif %}
+
+    {% if job_to_edit %}
+        <h3>Edit Job</h3>
+        <form action="{{ url_for('jobs.edit_job', id=job_to_edit.id) }}" method="POST" class='job-form'>
+            <input type="text" name="company" value="{{ job_to_edit.company }}" required>
+            <input type="text" name="position" value="{{ job_to_edit.position }}" required>
+            <select name="status" required>
+                <option value="Applied" {% if job_to_edit.status == 'Applied' %}selected{% endif %}>Applied</option>
+                <option value="Interview" {% if job_to_edit.status == 'Interview' %}selected{% endif %}>Interview</option>
+                <option value="Offer" {% if job_to_edit.status == 'Offer' %}selected{% endif %}>Offer</option>
+                <option value="Rejected" {% if job_to_edit.status == 'Rejected' %}selected{% endif %}>Rejected</option>
+                <option value="Accepted" {% if job_to_edit.status == 'Accepted' %}selected{% endif %}>Accepted</option>
+            </select>
+            <input type="text" name="notes" value="{{ job_to_edit.notes }}">
+            <input type="date" name="deadline" value="{{ job_to_edit.deadline.strftime('%Y-%m-%d') if job_to_edit.deadline else '' }}">
+            <button type="submit">Update</button>
+        </form>
+    {% endif %}
+</div>    
 
 {% endblock %}

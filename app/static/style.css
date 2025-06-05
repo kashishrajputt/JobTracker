@@ -1,0 +1,205 @@
+body {
+    margin:0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: #f8f9fa;
+}
+
+.container{
+    max-width: 800px;
+    margin: auto;
+    padding: 20px;
+    
+}
+
+header{
+    background: linear-gradient(to right, #0062E6, #33AeFF);
+    color: white;
+    padding: 20px 0;
+    box-shadow: 0 2px 8px rgb(198, 12, 12);
+}
+
+header h1{
+    margin: 0;
+    font-size: 28px;
+    text-align: center;
+    letter-spacing: 1px;
+}
+
+nav{
+    text-align: center;
+    margin-top: 10px;
+}
+
+nav a{
+    color: white;
+    text-decoration: none;
+    margin: 0 15px;
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+nav a:hover{
+    color: #ffd700;
+}
+
+footer {
+    background-color: #222e3c; /* much darker */
+    color: white;
+    padding: 15px 0;
+    text-align: center;
+    font-size: 14px;
+    margin-top: 60px;
+    box-shadow: 0 -2px 8px black;
+}
+
+footer p{
+    margin: 0;
+}
+
+.flash.success { color: green; }
+.flash.danger { color: red; }
+.flash.info { color: blue; }
+
+.login{
+    max-width: 400px;
+    margin: 40px auto;
+    padding: 30px;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 0 10px black;
+}
+
+.login h2{
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.register{
+    max-width: 400px;
+    margin: 40px auto;
+    padding: 30px;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 0 10px black;
+}
+
+.register h2{
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+
+.form-group{
+    margin-bottom: 20px;
+}
+
+.form-group label{
+    display: block;
+    font-weight: bold;
+    margin-bottom: 6px;
+}
+
+.form-group input{
+    width: 100%;
+    padding: 12px;
+    font-size: 16px;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+    margin-bottom: 6px;
+}
+.btn{
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 12px;
+    width: 100%;
+    font-size: 16px;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.btn:hover {
+    background-color: #0056b3;
+}
+
+.btn-warning {
+    background-color: #ffc107;
+    color: #212529;
+}
+
+.btn-warning:hover {
+    background-color: #e0a800;
+    color: #fff;
+}
+
+.btn-danger {
+    background-color: #dc3545;
+    color: #fff;
+}
+
+.btn-danger:hover {
+    background-color: #a71d2a;
+    color: #fff;
+}
+
+.btn-sm {
+    padding: 12px 20px;
+    font-size: 15px;
+}
+
+.job {
+    max-width: 700px;
+    margin: 40px auto;
+    background-color: white;
+    padding: 25px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px black;
+}
+
+.job-form{
+    width: 100%;
+    margin-bottom: 25px;
+}
+.job-form input,
+.job-form select,
+.job-form textarea,
+.job-form button {
+    display: block;
+    width: 100%;
+    margin-bottom: 12px;
+    padding: 12px;
+    font-size: 16px;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+}
+
+
+.job-form button {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background 0.2s;
+}
+
+.job-form button:hover {
+    background-color: #0056b3;
+}
+.job-table{
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.job-table th,
+.job-table td{
+    text-align: left;
+    padding: 12px;
+    border-bottom:1px solid #ddd; 
+}
+
+.job-table th{
+    background-color: white;
+}

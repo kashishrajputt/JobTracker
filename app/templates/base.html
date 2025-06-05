@@ -10,8 +10,8 @@
 </head>
 <body>
     <header>
-        <div class = "contatiner">
-            <h1>Job Tracker</h1>
+        <div class = "container">
+            <h1>Job Application Tracker</h1>
             <nav>
                 <a href="{{ url_for('jobs.view_jobs')}}">Home</a>
                 {% if 'user' in session %}
@@ -19,12 +19,13 @@
                 {% else %}
                     <a href = "{{ url_for ('auth.login') }}">Login</a>
                 {% endif %}
+                <a href="{{ url_for('auth.register')}}">Register</a>
             </nav>
         </div>
     </header>
 
-    <main class ="conatiner">
-        {% with messages = get_flased_message(with_categories = True) %}
+    <main class ="container">
+        {% with messages = get_flashed_messages(with_categories = True) %}
             {% for category, message in messages %}
                 <div class="flash {{category}}"> {{message}} </div>
             {% endfor %}
