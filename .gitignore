@@ -1,0 +1,30 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg
+*.egg-info/
+.Python
+env/
+venv/
+.venv/
+pip-log.txt
+pip-delete-this-directory.txt
+
+# IDEs/editors
+.vscode/
+.idea/
+*.swp
+.DS_Store
+
+# Flask instance folder
+instance/
+*.sqlite
+*.db
+
+# Logs and environment
+*.log
+.env
+.flaskenv
+
+# Byte-compiled / cache
+*.pyc
