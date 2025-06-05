@@ -1,5 +1,5 @@
 
-# 🧭 Job Tracker App
+# 🧭 Job Application Tracker App
 
 A simple Flask-based web application to help users track their job applications. Users can register, log in, and manage job entries with details such as company name, position, status, notes, and deadlines.
 
