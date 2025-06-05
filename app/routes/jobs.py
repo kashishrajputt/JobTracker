@@ -97,7 +97,7 @@ def edit_job(id):
     jobs = Job.query.filter_by(user_id=session['user_id']).all()
     return render_template('jobs.html', jobs=jobs, job_to_edit=job)
 
-@job_bp.route('/delete/<int:id>')
+@job_bp.route('/delete/<int:id>', methods=['POST'])
 def delete_job(id):
     """
     Delete a job entry by its ID if it belongs to the current user.
@@ -112,4 +112,5 @@ def delete_job(id):
     job = Job.query.get_or_404(id)
     db.session.delete(job)
     db.session.commit()
+    flash("Job deleted successfully!", "info")
     return redirect(url_for('jobs.view_jobs'))

@@ -108,19 +108,18 @@ footer p{
     box-sizing: border-box;
     margin-bottom: 6px;
 }
-.btn{
+.btn {
     background-color: #007bff;
     color: white;
     border: none;
-    padding: 12px;
-    width: 100%;
+    padding: 12px 20px;
     font-size: 16px;
     border-radius: 4px;
     cursor: pointer;
-}
-
-.btn:hover {
-    background-color: #0056b3;
+    display: inline-block;
+    width: auto;
+    transition: background 0.2s;
+    text-decoration: none;
 }
 
 .btn-warning {
@@ -144,7 +143,7 @@ footer p{
 }
 
 .btn-sm {
-    padding: 12px 20px;
+    padding: 15px 20px;
     font-size: 15px;
 }
 
